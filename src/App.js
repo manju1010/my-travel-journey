@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// import Footer from "./components/Footer";
+import Main from "./components/Main";
+import Navbar from "./components/Navbar";
+import Data from "./Data"; // Ensure this file exports travelData
 
 function App() {
+const data = Data.map(function(item) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Main
+      key={item.id}
+      img={item.img}
+      name={item.name}
+      link={item.link}
+      location={item.location}
+      fromDate={item.fromDate}
+      toDate={item.toDate}
+      description={item.description}
+    />
+  );
+});
+
+  return (
+    <div>
+      <Navbar />
+    {data}
+      
+      
     </div>
   );
 }
